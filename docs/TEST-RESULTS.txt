@@ -1,0 +1,44 @@
+test_body_not_in_cli_output_database_or_audit_log (test_cli.CLITests) ... ok
+test_cli_pause_and_resume_preserve_existing_task (test_cli.CLITests) ... ok
+test_cli_reset_needs_confirmation_and_warns (test_cli.CLITests) ... ok
+test_explicit_data_dir_is_mandatory (test_cli.CLITests) ... ok
+test_malformed_json_has_fixed_error_without_body (test_cli.CLITests) ... ok
+test_closed_session_blocks_unseen_late_main_start (test_core.CoreTests) ... ok
+test_confirmed_empty_observation_reaps (test_core.CoreTests) ... ok
+test_disabled_instance_and_provider_mismatch_are_rejected (test_core.CoreTests) ... ok
+test_duplicate_delivery_is_idempotent (test_core.CoreTests) ... ok
+test_explicit_new_generation_can_resume (test_core.CoreTests) ... ok
+test_failed_observation_preserves_hold (test_core.CoreTests) ... ok
+test_foreign_database_is_rejected_without_mutating_schema (test_core.CoreTests) ... ok
+test_instances_with_identical_native_ids_are_isolated (test_core.CoreTests) ... ok
+test_invalid_observation_cannot_partially_reap (test_core.CoreTests) ... ok
+test_late_start_and_tool_events_do_not_reopen_terminal_generation (test_core.CoreTests) ... ok
+test_no_implicit_task_from_tool_or_session_open (test_core.CoreTests) ... ok
+test_no_silence_expiry (test_core.CoreTests) ... ok
+test_older_generation_cannot_create_a_second_hold (test_core.CoreTests) ... ok
+test_parent_stop_preserves_child_and_background (test_core.CoreTests) ... ok
+test_pause_preserves_records_and_finish_during_pause (test_core.CoreTests) ... ok
+test_pause_survives_core_reopen_without_losing_task (test_core.CoreTests) ... ok
+test_permission_wait_keeps_hold (test_core.CoreTests) ... ok
+test_pid_reuse_reaps_only_old_identity (test_core.CoreTests) ... ok
+test_reset_does_not_resume_a_paused_core (test_core.CoreTests) ... ok
+test_reset_requires_confirmation_and_is_not_pause (test_core.CoreTests) ... ok
+test_same_event_id_different_metadata_is_rejected (test_core.CoreTests) ... ok
+test_session_close_does_not_close_independent_child (test_core.CoreTests) ... ok
+test_start_and_finish_update_hold_intent (test_core.CoreTests) ... ok
+test_start_during_pause_is_tracked_and_resume_restores_intent (test_core.CoreTests) ... ok
+test_status_does_not_fabricate_external_observations (test_core.CoreTests) ... ok
+test_terminal_before_start_blocks_late_start (test_core.CoreTests) ... ok
+test_unknown_instance_is_rejected (test_core.CoreTests) ... ok
+test_config_supports_many_instances_and_drops_secret_fields (test_privacy.PrivacyTests) ... ok
+test_direct_event_is_also_projected_at_core_boundary (test_privacy.PrivacyTests) ... ok
+test_duplicate_config_ids_rejected (test_privacy.PrivacyTests) ... ok
+test_hook_body_not_in_database_log_errors_or_status (test_privacy.PrivacyTests) ... ok
+test_ignored_hook_content_is_never_inspected_or_rendered (test_privacy.PrivacyTests) ... ok
+test_invalid_metadata_errors_never_echo_input (test_privacy.PrivacyTests) ... ok
+test_unmapped_hook_returns_safe_capability_error (test_privacy.PrivacyTests) ... ok
+
+----------------------------------------------------------------------
+Ran 39 tests in 1.038s
+
+OK

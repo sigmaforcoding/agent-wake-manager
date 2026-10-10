@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-wake-manager-dev"
+version = "0.1.0.dev0"
+description = "Isolated metadata-only Agent Wake Manager lifecycle core"
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]

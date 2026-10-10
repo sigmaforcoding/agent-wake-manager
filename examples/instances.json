@@ -1,0 +1,9 @@
+{
+  "schema": "awm.config/1",
+  "instances": [
+    {"id": "codex-personal", "provider": "codex", "config_root": "/synthetic/codex-home-1"},
+    {"id": "codex-work", "provider": "codex", "config_root": "/synthetic/codex-home-2"},
+    {"id": "claude-one", "provider": "claude", "config_root": "/synthetic/claude-home-1"},
+    {"id": "claude-two", "provider": "claude", "config_root": "/synthetic/claude-home-2"}
+  ]
+}

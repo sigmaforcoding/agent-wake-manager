@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canonical awm.event/1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "event_id",
+    "instance_id",
+    "provider",
+    "kind",
+    "session_id",
+    "generation",
+    "task_id",
+    "owner",
+    "source",
+    "occurred_at",
+    "tool_id",
+    "parent_task_id"
+  ],
+  "properties": {
+    "schema": {
+      "const": "awm.event/1"
+    },
+    "event_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "instance_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "provider": {
+      "enum": [
+        "codex",
+        "claude",
+        "process_wrapper",
+        "other"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "session.opened",
+        "session.closed",
+        "task.started",
+        "task.finished",
+        "task.resumed",
+        "task.waiting_permission",
+        "tool.started",
+        "tool.finished",
+        "child.started",
+        "child.finished",
+        "background.registered",
+        "background.finished"
+      ]
+    },
+    "session_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]+$",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "task_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "generation": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2147483647
+    },
+    "parent_task_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "tool_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "owner": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "pid",
+            "birth"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "pid": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "birth": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source": {
+      "enum": [
+        "official_hook",
+        "synthetic",
+        "explicit_wrapper"
+      ]
+    },
+    "occurred_at": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "task.started",
+              "task.resumed",
+              "child.started",
+              "background.registered",
+              "task.waiting_permission"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "owner": {
+            "type": "object",
+            "required": [
+              "pid",
+              "birth"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "pid": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "birth": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "tool.started",
+              "tool.finished"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "tool_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "not": {
+              "enum": [
+                "session.opened",
+                "session.closed"
+              ]
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        }
+      }
+    }
+  ]
+}

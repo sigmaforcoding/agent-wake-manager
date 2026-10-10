@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "awm.status/1 development snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "awm.status/1"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "paused": {
+      "type": "boolean"
+    },
+    "active_task_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "lease_intent": {
+      "type": "boolean"
+    },
+    "service_alive": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "lease_alive": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "amphetamine_active": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "last_error": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "instances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "active_count"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "active_count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "updated_at",
+    "paused",
+    "active_task_count",
+    "lease_intent",
+    "service_alive",
+    "lease_alive",
+    "amphetamine_active",
+    "last_error",
+    "instances"
+  ]
+}

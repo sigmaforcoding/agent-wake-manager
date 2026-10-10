@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canonical awm.config/1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "instances"
+  ],
+  "properties": {
+    "schema": {
+      "const": "awm.config/1"
+    },
+    "instances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "provider",
+          "enabled"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "provider": {
+            "enum": [
+              "codex",
+              "claude",
+              "process_wrapper",
+              "other"
+            ]
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "config_root": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        }
+      }
+    }
+  }
+}
