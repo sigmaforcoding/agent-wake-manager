@@ -2,7 +2,7 @@
 
 <img src="assets/AppIcon.png" alt="Agent Wake Manager icon" width="128">
 
-这是与已安装实验版隔离的小里程碑，不是 macOS 发行包。保留 Python Core + Swift GUI 方向；本轮仅实现 Python 元数据核心，没有 GUI、服务、安装器、登录注册、解释器打包或电源后端。首批产品目标 macOS 14+ / Apple Silicon；Intel 未验证。此核心本次使用现有 Python 3.9.6 测试，不要求安装依赖。
+这是与已安装实验版隔离的小里程碑，不是 macOS 发行包。保留 Python Core + Swift GUI 方向；当前仅实现 Python 元数据核心，没有 GUI、服务、安装器、登录注册、解释器打包或电源后端。首批产品目标 macOS 14+ / Apple Silicon；Intel 未验证。此核心本次使用现有 Python 3.9.6 测试，不要求安装依赖。
 
 ## 测试
 
@@ -44,4 +44,4 @@ PYTHONPATH=src python3 -B -m agent_wake_manager --data-dir .local/demo --config 
 
 Amphetamine 是未来实际运行时的外部依赖；本核心不实现自己的电源管理，不启动它，也不承诺未经条件化实测的合盖效果。实验版的用户截图证据只覆盖该实验版主 Codex 场景，不能转移成此核心或其他客户端的验证结论。详见 `docs/SUPPORT.md`。
 
-许可证倾向 MIT，但来源审查未完成，本仓库没有正式 LICENSE，也未发布 GitHub。提取记录见 `SOURCES.md`。下一轮建议只完成一个 Codex 元数据 adapter 的合成原生事件 fixture 与代际映射，不安装真实 Hooks。
+公开开发仓库：[sigmaforcoding/agent-wake-manager](https://github.com/sigmaforcoding/agent-wake-manager)。更新直接提交到 `main`。许可证倾向 MIT，但来源审查未完成，本仓库没有正式 LICENSE。提取记录见 `SOURCES.md`。下一轮建议只完成一个 Codex 元数据 adapter 的合成原生事件 fixture 与代际映射，不安装真实 Hooks。
