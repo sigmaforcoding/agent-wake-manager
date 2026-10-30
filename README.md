@@ -1,5 +1,7 @@
 # Agent Wake Manager — isolated development core
 
+<img src="assets/AppIcon.png" alt="Agent Wake Manager icon" width="128">
+
 这是与已安装实验版隔离的小里程碑，不是 macOS 发行包。保留 Python Core + Swift GUI 方向；本轮仅实现 Python 元数据核心，没有 GUI、服务、安装器、登录注册、解释器打包或电源后端。首批产品目标 macOS 14+ / Apple Silicon；Intel 未验证。此核心本次使用现有 Python 3.9.6 测试，不要求安装依赖。
 
 ## 测试

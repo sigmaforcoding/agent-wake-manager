@@ -14,5 +14,7 @@
 | schemas/*.json | 新建 canonical event/config/status 的最小机器可读契约 |
 | examples/instances.json | 新建假实例/假 config_root，不取用户实际配置 |
 | README、docs/*、HANDOFF、pyproject、.gitignore | 新建开发文档、构建声明和忽略规则；未安装打包依赖 |
+| assets/AppIcon.png、AppIcon.icns、assets/README.md | 2026-10-30 使用内置 OpenAI imagegen 新生成的图标与生成记录；未提供第三方参考图。PNG 经 macOS sips/iconutil 打包为 ICNS；不是已安装 .app 或运行数据 |
+| scripts/build-icon.sh | 新建的 macOS 图标打包脚本，仅处理仓库 PNG 与临时 iconset，不安装 App、不读取用户配置 |
 
 明确排除：runtime、backups、research、真实配置、SQLite、二进制.app、原实验版 Git 历史、Swift GUI 源码（本轮不实现 GUI）以及模型/API/凭据。当前只审查了所引入文件，不宣称完成项目全部第三方许可来源核验；MIT 尚未正式采用，未创建 LICENSE。研究参考目录未引入，因此也不假定其许可覆盖本仓库。
